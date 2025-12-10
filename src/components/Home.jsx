@@ -11,7 +11,7 @@ const Home = () => {
                 
                 {/* Left Side */} 
                     <div className="flex flex-col justify-center h-full"> 
-                    <h2 className="text-4xl sm:text-7xl font-extrabold bg-gradient-to-r from-teal-300 to-teal-500 bg-clip-text text-transparent"> Hey, I'm Arjava Tripathi </h2> 
+                    <h2 className="text-4xl sm:text-7xl font-extrabold bg-gradient-to-r from-teal-300 to-teal-500 bg-clip-text text-transparent"> Hey, I'm Arjava Tripathi... </h2> 
                     <p className="text-gray-300 py-4 max-w-md"> Computer Science Undergraduate from Iowa State University </p> 
                     <div> 
                         <Link to="about" smooth duration={500} className="group w-fit px-6 py-3 my-2 flex items-center rounded-md font-semibold cursor-pointer bg-teal-600 hover:bg-teal-500 text-white transition" > 
