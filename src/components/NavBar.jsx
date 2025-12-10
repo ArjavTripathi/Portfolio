@@ -48,7 +48,7 @@ const Navbar = () => {
       </ul>
 
       {/* Social Sidebar */}
-      <div className="hidden lg:flex fixed flex-col top-1/2 transform -translate-y-1/2 left-0">
+      <div className="hidden lg:flex fixed flex-col top-[100%] left-0">
         <ul>
           <li className="w-44 h-14 flex justify-between items-center ml-[-110px] hover:ml-[-10px] duration-300 bg-[#0A2540] border-l-4 border-teal-400 rounded-r-md">
             <a href="https://linkedin.com" className="flex justify-between items-center w-full px-4">
@@ -57,7 +57,7 @@ const Navbar = () => {
           </li>
 
           <li className="w-44 h-14 flex justify-between items-center ml-[-110px] hover:ml-[-10px] duration-300 bg-[#0A2540] border-l-4 border-teal-400 rounded-r-md">
-            <a href="https://github.com" className="flex justify-between items-center w-full px-4">
+            <a href="https://github.com/ArjavTripathi" className="flex justify-between items-center w-full px-4">
               GitHub <FaGithub size={30} />
             </a>
           </li>
