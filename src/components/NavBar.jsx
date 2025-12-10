@@ -12,7 +12,7 @@ const Navbar = () => {
     <div className="fixed w-full h-20 flex justify-between items-center px-4 bg-[#0A2540]/95 backdrop-blur-md text-white shadow-lg z-50">
 
       {/* Logo */}
-      <h1 className="font-bold text-3xl tracking-wide text-teal-300 select-none"></h1>
+      <h1 className="font-bold text-3xl tracking-wide text-teal-300 select-none"></h1> 
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex gap-x-10">
@@ -39,7 +39,7 @@ const Navbar = () => {
         }
       >
         {["home", "about", "skills", "projects", "contact"].map((section) => (
-          <li key={section} className="py-6 text-4xl hover:text-teal-300">
+          <li key={section} className="py-7 text-4xl hover:text-teal-300">
             <Link onClick={handleClick} to={section} smooth duration={500}>
               {section.charAt(0).toUpperCase() + section.slice(1)}
             </Link>
