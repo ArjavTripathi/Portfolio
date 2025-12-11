@@ -24,7 +24,7 @@ find . -mindepth 1 \
 
 echo "📦 Copying build files from $MAIN_BRANCH..."
 git checkout $MAIN_BRANCH -- build
-cp -r build/* ./
+cp -r build/. ./
 rm -rf build/
 
 echo "📤 Committing and pushing to $DEPLOY_BRANCH..."
