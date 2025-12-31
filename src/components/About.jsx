@@ -28,7 +28,7 @@ const About = () => {
           <div className="text-gray-300 leading-relaxed space-y-4 text-justify">
           <p>
               I'm AJ, a software developer who loves building clean, and high-performing applications.
-               My interests span backend systems, mobile apps, and cloud infrastructure.
+              I'm most passionate about designing scalable backend systems — from building REST APIs in Java to deploying services with Docker and automating CI/CD pipelines.
             </p>
             <p>
               I’m driven by curiosity and a passion for problem-solving — whether it’s designing an API, optimizing performance, 
