@@ -12,7 +12,7 @@ const Navbar = () => {
     <div className="fixed w-full h-20 flex justify-between items-center px-4 bg-[#0A2540]/95 backdrop-blur-md text-white shadow-lg z-50">
 
       {/* Logo */}
-      <h1 className="font-bold text-3xl tracking-wide text-teal-300 select-none">HOLDER</h1> 
+      <h1 className="font-bold text-3xl tracking-wide text-teal-300 select-none">AJ</h1> 
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex gap-x-10">
