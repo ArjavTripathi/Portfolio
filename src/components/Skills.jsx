@@ -103,6 +103,7 @@ const Skills = () => {
           ))}
         </div>
       </div>
+      <div className="mt-20 h-[2px] w-full bg-gradient-to-r from-transparent via-teal-300/60 to-transparent" />
     </section>
   );
 };

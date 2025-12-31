@@ -1,48 +1,91 @@
 import React from "react";
-import me from '../assets/AJIcon-nobg.png'; 
+import me from "../assets/AJIcon-nobg.png";
+import { FaGithub, FaFileAlt } from "react-icons/fa";
 
 const About = () => {
   return (
-    <div
+    <section
       name="about"
       id="about"
-      className="w-full min-h-screen bg-[#0A2540] text-white flex items-center"
+      className="w-full min-h-screen bg-[#0A2540] text-white pt-24"
     >
-      <div className="max-w-screen-lg mx-auto px-4 py-16 flex flex-col gap-8">
-
-      <div className="flex justify-center sm:justify-end">
-        <img src={me} alt="Profile" className="w-40 h-40 rounded-full shadow-lg" />
-      </div>
-
-        
-
-        {/* Content Grid */}
-        <div className="grid sm:grid-cols-2 gap-8">
-          <div className="text-3xl sm:text-right font-bold text-teal-300">
-            <p>
-              ...But you can just call me AJ.
-              <br />Welcome to my portfolio!
-            </p>
-          </div>
-
-          <div className="text-gray-300 leading-relaxed space-y-4 text-justify">
-          <p>
-              I'm AJ, a software developer who loves building clean, and high-performing applications.
-              I'm most passionate about designing scalable backend systems — from building REST APIs in Java to deploying services with Docker and automating CI/CD pipelines.
-            </p>
-            <p>
-              I’m driven by curiosity and a passion for problem-solving — whether it’s designing an API, optimizing performance, 
-              or learning the latest frameworks. I take pride in writing clean code and crafting meaningful digital experiences.
-            </p>
-            <p>
-              Outside of coding, I’m into [insert hobby/fun fact]. I believe great software is built at the 
-              intersection of creativity, collaboration, and code.
-            </p>
-          </div>
+      <div className="max-w-screen-lg mx-auto px-4 py-16">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-bold inline border-b-4 border-teal-400">
+            About
+          </h2>
+          <p className="mt-4 text-gray-300 text-lg max-w-2xl mx-auto">
+            Backend-focused developer who enjoys building reliable systems and clean APIs.
+          </p>
         </div>
 
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          {/* Text (left) */}
+          <div>
+            <h3 className="text-3xl font-bold text-teal-300">
+              ...But you can just call me AJ.
+            </h3>
+            <p className="text-gray-300 mt-4 leading-relaxed">
+              I’m a software developer who enjoys building scalable, high-performance applications.
+              I’m most interested in backend systems—API design, databases, authentication, and
+              deployment.
+            </p>
+            <p className="text-gray-300 mt-4 leading-relaxed">
+              I like taking a feature from idea → implementation → shipped: designing endpoints,
+              structuring services cleanly, optimizing queries, and making sure systems are reliable.
+            </p>
+
+            {/* “Chips” */}
+            <div className="mt-6 flex flex-wrap gap-3">
+              {["API Design", "Databases", "Docker/CI"].map((chip) => (
+                <span
+                  key={chip}
+                  className="px-3 py-2 rounded-full bg-white/5 border border-white/10
+                             text-sm text-gray-200 hover:border-teal-400/40 hover:text-teal-300 transition"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="/resume.pdf"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg
+                           bg-teal-500 hover:bg-teal-400 text-[#0A2540] font-semibold transition"
+              >
+                <FaFileAlt /> Resume
+              </a>
+              <a
+                href="https://github.com/ArjavTripathi"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg
+                           border border-white/15 hover:border-teal-400/40 text-white transition"
+              >
+                <FaGithub /> GitHub
+              </a>
+            </div>
+          </div>
+
+          {/* Avatar (right on desktop) */}
+          <div className="flex justify-center md:justify-end">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <img
+                src={me}
+                alt="AJ profile"
+                className="w-44 h-44 md:w-56 md:h-56 rounded-full object-cover
+                           shadow-[0_0_30px_rgba(0,200,180,0.20)]"
+              />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      <div className="mt-20 h-[2px] w-full bg-gradient-to-r from-transparent via-teal-300/60 to-transparent" />
+    </section>
   );
 };
 
