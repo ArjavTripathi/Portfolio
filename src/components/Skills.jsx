@@ -52,8 +52,6 @@ const stack = [
     icon: <FaToolbox />,
     items: [
       { name: "Postman", icon: <SiPostman /> },
-      { name: "Redis", icon: <SiRedis /> },
-      { name: "Nginx", icon: <SiNginx /> },
       { name: "Git", icon: <SiGit /> },
     ],
   },
@@ -61,7 +59,7 @@ const stack = [
 
 const Skills = () => {
   return (
-    <section name="skills" className="w-full min-h-screen bg-[#0A2540] text-white pt-24">
+    <section name="skills" className="w-full  bg-[#0A2540] text-white pt-24">
       <div className="max-w-screen-lg mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-10">

@@ -7,7 +7,7 @@ const About = () => {
     <section
       name="about"
       id="about"
-      className="w-full min-h-screen bg-[#0A2540] text-white pt-24"
+      className="w-full bg-[#0A2540] text-white pt-24"
     >
       <div className="max-w-screen-lg mx-auto px-4 py-16">
         {/* Header */}
@@ -29,8 +29,8 @@ const About = () => {
             </h3>
             <p className="text-gray-300 mt-4 leading-relaxed">
               I’m a software developer who enjoys building scalable, high-performance applications.
-              I’m most interested in backend systems—API design, databases, authentication, and
-              deployment.
+              Ever since I first built a calculator using Python, I have been interested in software
+              works and how it can be used to help people.
             </p>
             <p className="text-gray-300 mt-4 leading-relaxed">
               I like taking a feature from idea → implementation → shipped: designing endpoints,
@@ -39,7 +39,7 @@ const About = () => {
 
             {/* “Chips” */}
             <div className="mt-6 flex flex-wrap gap-3">
-              {["API Design", "Databases", "Docker/CI"].map((chip) => (
+              {["CS @ Iowa State", "Always Shipping", "Open Source"].map((chip) => (
                 <span
                   key={chip}
                   className="px-3 py-2 rounded-full bg-white/5 border border-white/10
@@ -53,7 +53,7 @@ const About = () => {
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="/resume.pdf"
+                href="resume.pdf"
                 download="Resume.pdf"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-lg
                            bg-teal-500 hover:bg-teal-400 text-[#0A2540] font-semibold transition"
