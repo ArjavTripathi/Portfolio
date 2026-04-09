@@ -10,9 +10,7 @@ import {
   SiDocker,
   SiGithubactions,
   SiPostman,
-  SiRedis,
   SiGit,
-  SiNginx,
 } from "react-icons/si";
 
 const stack = [
