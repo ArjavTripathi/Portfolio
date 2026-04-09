@@ -42,6 +42,7 @@ const Footer = () => {
 
           <a
             href="/resume.pdf"
+            download="Resume.pdf"
             className="px-4 py-2 rounded-lg bg-teal-500 hover:bg-teal-400 text-[#0A2540] font-semibold transition text-sm"
           >
             Resume

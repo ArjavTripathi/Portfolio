@@ -54,6 +54,7 @@ const About = () => {
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="/resume.pdf"
+                download="Resume.pdf"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-lg
                            bg-teal-500 hover:bg-teal-400 text-[#0A2540] font-semibold transition"
               >

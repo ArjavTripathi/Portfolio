@@ -9,46 +9,21 @@ const projects = [
     bullets: [
       "Built backend services for game logic + scoring",
       "Designed REST endpoints for sessions, guesses, and leaderboards",
-      "Deployed with environment-based config for prod/dev",
     ],
-    github: "https://github.com/ArjavTripathi/Geohunt-Backend", // replace with real link
-    demo: "demo",     // replace with real link
+    github: "https://github.com/ArjavTripathi/Geohunt-Backend",
+    demo: null,     
   },
   {
-    title: "Project Placeholder",
-    value: "Backend service / API project",
-    tech: ["Node.js", "Express", "MongoDB"],
+    title: "Linkly",
+    value: "Fullstack Project",
+    tech: ["SpringBoot", "MySQL", "Vite"],
     bullets: [
       "Designed data model + CRUD endpoints",
-      "Added authentication + rate limiting",
+      "Added authentication + Dashboard",
       "Wrote clean services + controllers structure",
     ],
-    github: "#",
+    github: "https://github.com/ArjavTripathi/linkly",
     demo: null, // or "#"
-  },
-  {
-    title: "Project Placeholder",
-    value: "Cloud / DevOps focused build",
-    tech: ["Docker", "GitHub Actions", "Nginx"],
-    bullets: [
-      "Containerized app for repeatable builds",
-      "CI pipeline: lint, test, build, deploy",
-      "Reverse proxy + env-based deployment",
-    ],
-    github: "#",
-    demo: null,
-  },
-  {
-    title: "Project Placeholder",
-    value: "Database / performance project",
-    tech: ["SQL", "Redis", "Caching"],
-    bullets: [
-      "Optimized queries + indexing strategy",
-      "Added caching layer to reduce latency",
-      "Measured performance before/after",
-    ],
-    github: "#",
-    demo: null,
   },
 ];
 
@@ -70,13 +45,13 @@ const Works = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 items-stretch">
           {projects.map((p) => (
             <article
               key={p.title}
               className="rounded-xl bg-white/5 border border-white/10 p-6
                          hover:border-teal-400/40 hover:ring-1 hover:ring-teal-400/20
-                         transition"
+                         transition flex flex-col"
             >
               {/* Top row */}
               <div className="flex items-start justify-between gap-4">
@@ -123,7 +98,7 @@ const Works = () => {
               </div>
 
               {/* Highlights */}
-              <ul className="mt-4 space-y-2 text-gray-300 list-disc pl-5">
+              <ul className="mt-4 space-y-2 text-gray-300 list-disc pl-5 flex-grow">
                 {p.bullets.map((b) => (
                   <li key={b}>{b}</li>
                 ))}
@@ -139,7 +114,7 @@ const Works = () => {
                 >
                   View Code
                 </a>
-                {p.demo ? (
+                {p.demo && (
                   <a
                     href={p.demo}
                     target="_blank"
@@ -148,10 +123,6 @@ const Works = () => {
                   >
                     Live Demo
                   </a>
-                ) : (
-                  <span className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 text-sm">
-                    Demo coming soon
-                  </span>
                 )}
               </div>
             </article>

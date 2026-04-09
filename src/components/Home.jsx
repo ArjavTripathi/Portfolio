@@ -13,7 +13,7 @@ const Home = () => {
             Hey, I'm Arjava Tripathi...
           </h2>
           <p className="text-gray-300 py-4 max-w-md">
-            Computer Science Undergraduate from Iowa State University
+            Full-stack developer. I build things that work and ship them.
           </p>
           <div>
             <Link
