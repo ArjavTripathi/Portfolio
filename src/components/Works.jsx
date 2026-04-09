@@ -31,7 +31,7 @@ const Works = () => {
   return (
     <section
       name="projects"
-      className="w-full min-h-screen bg-[#0A2540] text-white pt-24"
+      className="w-full bg-[#0A2540] text-white pt-24"
     >
       <div className="max-w-screen-lg mx-auto px-4 py-16">
         {/* Header */}
