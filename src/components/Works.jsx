@@ -23,7 +23,7 @@ const projects = [
       "Wrote clean services + controllers structure",
     ],
     github: "https://github.com/ArjavTripathi/linkly",
-    demo: null, // or "#"
+    demo: "https://welinkit.tech/", // or "#"
   },
 ];
 
