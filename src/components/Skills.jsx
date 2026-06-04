@@ -5,6 +5,7 @@ import {
   SiMysql,
   SiDocker, SiGithubactions,
   SiPostman, SiGit,
+  SiPostgresql
 } from "react-icons/si";
 import { FaCloud } from "react-icons/fa";
 import { useScrollReveal } from "../hooks/useScrollReveal";
@@ -29,6 +30,7 @@ const categories = [
     label: "Databases",
     items: [
       { name: "MySQL", icon: <SiMysql /> },
+      { name: "PostGreSQL", icon: <SiPostgresql /> }
     ],
   },
   {
