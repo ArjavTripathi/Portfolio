@@ -1,82 +1,60 @@
-import React, { useState } from "react";
+import React from "react";
+import { HiOutlineMail } from "react-icons/hi";
+import { FaLinkedin } from "react-icons/fa";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const Contact = () => {
-  const [status, setStatus] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setStatus("✅ Message ready! (Hook this to Formspree/EmailJS next)");
-  };
+  const [ref, visible] = useScrollReveal();
 
   return (
-    <section name="contact" className="w-full bg-[#0A2540] text-white pt-24">
-      <div className="max-w-screen-lg mx-auto px-4 py-16">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold inline border-b-4 border-teal-400">
-            Contact
+    <section name="contact" id="contact" className="w-full bg-[#060f1e] text-white pt-28 pb-0">
+      <div
+        ref={ref}
+        className={`max-w-screen-lg mx-auto px-6 py-20 reveal ${visible ? 'visible' : ''}`}
+      >
+        <div className="max-w-2xl mx-auto text-center flex flex-col items-center gap-6">
+
+          <span className="text-xs font-semibold tracking-[0.3em] uppercase text-teal-400/70">
+            04 — Contact
+          </span>
+
+          <h2 className="text-3xl sm:text-5xl font-bold text-white leading-tight">
+            Have a project in mind?<br />
+            <span className="text-teal-300">Let's make it happen.</span>
           </h2>
-          <p className="mt-4 text-gray-300 text-lg max-w-2xl mx-auto">
-            Want to collaborate or chat backend? Send me a message.
+
+          <p className="text-gray-400 leading-relaxed max-w-lg">
+            I'm currently open to new opportunities — whether it's a full-time role,
+            internship, or freelance project. My inbox is always open.
           </p>
-        </div>
 
-        {/* Card */}
-        <div className="max-w-xl mx-auto rounded-xl bg-white/5 border border-white/10 p-6 hover:border-teal-400/40 transition">
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <label className="text-sm text-gray-300">
-              Name
-              <input
-                className="mt-2 w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white
-                           placeholder:text-gray-500 focus:outline-none focus:border-teal-400/60
-                           focus:ring-1 focus:ring-teal-400/20 transition"
-                type="text"
-                placeholder="Your name"
-                name="name"
-                required
-              />
-            </label>
-
-            <label className="text-sm text-gray-300">
-              Email
-              <input
-                className="mt-2 w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white
-                           placeholder:text-gray-500 focus:outline-none focus:border-teal-400/60
-                           focus:ring-1 focus:ring-teal-400/20 transition"
-                type="email"
-                placeholder="you@email.com"
-                name="email"
-                required
-              />
-            </label>
-
-            <label className="text-sm text-gray-300">
-              Message
-              <textarea
-                className="mt-2 w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3 text-white
-                           placeholder:text-gray-500 focus:outline-none focus:border-teal-400/60
-                           focus:ring-1 focus:ring-teal-400/20 transition"
-                name="message"
-                rows="6"
-                placeholder="Tell me what you’re building..."
-                required
-              />
-            </label>
-
-            <button
-              type="submit"
-              className="mt-2 w-full rounded-lg bg-teal-500 hover:bg-teal-400 text-[#0A2540]
-                         font-semibold px-6 py-3 transition"
+          <div className="flex flex-wrap justify-center gap-4 mt-2">
+            <a
+              href="mailto:arjavatripathi2+portfolio@gmail.com"
+              className="inline-flex items-center gap-2.5 px-7 py-3 rounded-lg
+                         bg-teal-500 hover:bg-teal-400 text-[#060f1e] font-semibold
+                         text-sm transition-colors duration-200"
             >
-              Send Message
-            </button>
-
-            {status && (
-              <p className="text-sm text-teal-300 text-center mt-2">{status}</p>
-            )}
-          </form>
+              <HiOutlineMail size={17} />
+              Send me an email
+            </a>
+            <a
+              href="https://www.linkedin.com/in/arjava-tripathi-b11bb4259/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2.5 px-7 py-3 rounded-lg
+                         border border-white/10 text-gray-300
+                         hover:border-teal-400/50 hover:text-teal-300
+                         text-sm font-medium transition-all duration-200"
+            >
+              <FaLinkedin size={15} />
+              Connect on LinkedIn
+            </a>
+          </div>
         </div>
       </div>
+
+      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/8 to-transparent" />
     </section>
   );
 };

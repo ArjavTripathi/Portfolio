@@ -1,75 +1,96 @@
 import React from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const projects = [
   {
+    number: "01",
     title: "GeoHunt",
-    value: "IRL location guessing game",
+    value: "IRL geolocation guessing game",
+    description: "A real-world location guessing game where players compete to identify places from photos. Focused on backend services for game logic, scoring, and session management.",
     tech: ["Spring Boot", "REST API", "MySQL"],
     bullets: [
-      "Built backend services for game logic + scoring",
+      "Built game logic + scoring engine",
       "Designed REST endpoints for sessions, guesses, and leaderboards",
     ],
     github: "https://github.com/ArjavTripathi/Geohunt-Backend",
-    demo: null,     
+    demo: null,
+    featured: false,
   },
   {
+    number: "02",
     title: "Linkly",
-    value: "Fullstack Project",
-    tech: ["SpringBoot", "MySQL", "Vite"],
+    value: "Full-stack link management platform",
+    description: "A full-stack link management platform with user authentication, a dashboard, and clean CRUD endpoints. Built with a Spring Boot backend and a Vite-powered frontend.",
+    tech: ["Spring Boot", "MySQL", "Vite"],
     bullets: [
       "Designed data model + CRUD endpoints",
-      "Added authentication + Dashboard",
+      "Added authentication + Dashboard UI",
       "Wrote clean services + controllers structure",
     ],
     github: "https://github.com/ArjavTripathi/linkly",
-    demo: "https://welinkit.tech/", // or "#"
+    demo: "https://welinkit.tech/",
+    featured: true,
   },
 ];
 
 const Works = () => {
+  const [ref, visible] = useScrollReveal();
+
   return (
-    <section
-      name="projects"
-      className="w-full bg-[#0A2540] text-white pt-24"
-    >
-      <div className="max-w-screen-lg mx-auto px-4 py-16">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold inline border-b-4 border-teal-400">
-            Projects
-          </h2>
-          <p className="mt-4 text-gray-300 text-lg max-w-2xl mx-auto">
-            All my projects!
-          </p>
+    <section name="projects" id="projects" className="w-full bg-[#060f1e] text-white pt-28 pb-0">
+      <div
+        ref={ref}
+        className={`max-w-screen-lg mx-auto px-6 py-16 reveal ${visible ? 'visible' : ''}`}
+      >
+        {/* Section label */}
+        <div className="mb-12">
+          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-teal-400/70">03 — Projects</span>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-white">Things I've Built</h2>
+          <p className="mt-2 text-gray-500 text-sm">A selection of projects I've shipped.</p>
         </div>
 
-        {/* Grid */}
+        {/* Cards */}
         <div className="grid sm:grid-cols-2 gap-6 items-stretch">
-          {projects.map((p) => (
+          {projects.map((p, i) => (
             <article
               key={p.title}
-              className="rounded-xl bg-white/5 border border-white/10 p-6
-                         hover:border-teal-400/40 hover:ring-1 hover:ring-teal-400/20
-                         transition flex flex-col"
+              className="relative rounded-xl bg-white/3 border border-white/8 border-t-2 border-t-teal-500/60 p-7
+                         hover:border-teal-400/30 hover:bg-white/5 hover:shadow-[0_0_30px_rgba(45,212,191,0.05)]
+                         transition-all duration-300 flex flex-col overflow-hidden"
+              style={visible ? { animationDelay: `${i * 0.12}s` } : {}}
             >
+              {/* Faint project number */}
+              <span className="absolute -top-2 -right-1 text-[7rem] font-extrabold text-teal-300/5 select-none leading-none pointer-events-none">
+                {p.number}
+              </span>
+
               {/* Top row */}
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex items-start justify-between gap-4 relative z-10">
                 <div>
-                  <h3 className="text-xl font-bold text-teal-300">{p.title}</h3>
-                  <p className="text-gray-300 mt-1">{p.value}</p>
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-lg font-bold text-white">{p.title}</h3>
+                    {p.featured && (
+                      <span className="text-[10px] font-semibold tracking-widest uppercase px-2 py-0.5
+                                       rounded-full bg-teal-400/10 border border-teal-400/25 text-teal-300">
+                        Featured
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-gray-500 text-xs font-medium">{p.value}</p>
                 </div>
 
-                {/* Links */}
-                <div className="flex gap-3 shrink-0">
+                {/* Icon links */}
+                <div className="flex gap-2 shrink-0">
                   <a
                     href={p.github}
                     target="_blank"
                     rel="noreferrer"
                     aria-label={`${p.title} GitHub`}
-                    className="p-2 rounded-lg border border-white/10 hover:border-teal-400/40 transition"
+                    className="p-2 rounded-lg border border-white/8 text-gray-400
+                               hover:border-teal-400/40 hover:text-teal-300 transition-all duration-200"
                   >
-                    <FaGithub />
+                    <FaGithub size={15} />
                   </a>
                   {p.demo && (
                     <a
@@ -77,40 +98,38 @@ const Works = () => {
                       target="_blank"
                       rel="noreferrer"
                       aria-label={`${p.title} Demo`}
-                      className="p-2 rounded-lg border border-white/10 hover:border-teal-400/40 transition"
+                      className="p-2 rounded-lg border border-white/8 text-gray-400
+                                 hover:border-teal-400/40 hover:text-teal-300 transition-all duration-200"
                     >
-                      <FaExternalLinkAlt />
+                      <FaExternalLinkAlt size={13} />
                     </a>
                   )}
                 </div>
               </div>
 
+              {/* Description */}
+              <p className="mt-4 text-gray-400 text-sm leading-relaxed relative z-10">{p.description}</p>
+
               {/* Tech chips */}
-              <div className="flex flex-wrap gap-2 mt-4">
+              <div className="flex flex-wrap gap-2 mt-5 relative z-10">
                 {p.tech.map((t) => (
                   <span
                     key={t}
-                    className="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-gray-200"
+                    className="text-[11px] px-2.5 py-1 rounded-full bg-white/4 border border-white/8 text-gray-400 font-medium"
                   >
                     {t}
                   </span>
                 ))}
               </div>
 
-              {/* Highlights */}
-              <ul className="mt-4 space-y-2 text-gray-300 list-disc pl-5 flex-grow">
-                {p.bullets.map((b) => (
-                  <li key={b}>{b}</li>
-                ))}
-              </ul>
-
-              {/* Optional CTA row */}
-              <div className="mt-6 flex gap-3">
+              {/* CTA row */}
+              <div className="mt-auto pt-6 flex gap-3 relative z-10">
                 <a
                   href={p.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-4 py-2 rounded-lg border border-white/15 hover:border-teal-400/40 transition text-sm"
+                  className="px-4 py-2 rounded-lg border border-white/10 text-gray-400 text-sm
+                             hover:border-teal-400/40 hover:text-teal-300 transition-all duration-200"
                 >
                   View Code
                 </a>
@@ -119,9 +138,10 @@ const Works = () => {
                     href={p.demo}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-2 rounded-lg bg-teal-500 hover:bg-teal-400 text-[#0A2540] font-semibold transition text-sm"
+                    className="px-4 py-2 rounded-lg bg-teal-500 hover:bg-teal-400
+                               text-[#060f1e] font-semibold text-sm transition-colors duration-200"
                   >
-                    Live Demo
+                    Live Demo ↗
                   </a>
                 )}
               </div>
@@ -129,7 +149,8 @@ const Works = () => {
           ))}
         </div>
       </div>
-      <div className="mt-20 h-[2px] w-full bg-gradient-to-r from-transparent via-teal-300/60 to-transparent" />
+
+      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/8 to-transparent" />
     </section>
   );
 };

@@ -1,49 +1,56 @@
 import React from "react";
-import me from "../assets/AJIcon-nobg.png";
-import { FaGithub, FaFileAlt } from "react-icons/fa";
+import { FaGithub, FaFileAlt, FaMapMarkerAlt, FaGraduationCap, FaBolt } from "react-icons/fa";
+import { useScrollReveal } from "../hooks/useScrollReveal";
+
+const quickFacts = [
+  { icon: <FaMapMarkerAlt className="text-teal-400" />, label: "Ames, Iowa" },
+  { icon: <FaGraduationCap className="text-teal-400" />, label: "CS @ Iowa State University" },
+  { icon: <FaBolt className="text-teal-400" />, label: "Backend-focused" },
+];
+
+const chips = ["Always Shipping", "Open Source", "Clean APIs"];
 
 const About = () => {
+  const [ref, visible] = useScrollReveal();
+
   return (
-    <section
-      name="about"
-      id="about"
-      className="w-full bg-[#0A2540] text-white pt-24"
-    >
-      <div className="max-w-screen-lg mx-auto px-4 py-16">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold inline border-b-4 border-teal-400">
-            About
+    <section name="about" id="about" className="w-full bg-[#060f1e] text-white pt-28 pb-0">
+      <div
+        ref={ref}
+        className={`max-w-screen-lg mx-auto px-6 py-16 reveal ${visible ? 'visible' : ''}`}
+      >
+        {/* Section label */}
+        <div className="mb-10">
+          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-teal-400/70">01 — About</span>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-white">
+            But you can just call me AJ.
           </h2>
-          <p className="mt-4 text-gray-300 text-lg max-w-2xl mx-auto">
-            Backend-focused developer who enjoys building reliable systems and clean APIs.
-          </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          {/* Text (left) */}
+        {/* Two-column grid */}
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+
+          {/* Left — Bio */}
           <div>
-            <h3 className="text-3xl font-bold text-teal-300">
-              ...But you can just call me AJ.
-            </h3>
-            <p className="text-gray-300 mt-4 leading-relaxed">
-              I’m a software developer who enjoys building scalable, high-performance applications.
-              Ever since I first built a calculator using Python, I have been interested in software
-              works and how it can be used to help people.
+            <p className="text-gray-400 leading-relaxed">
+              I'm a software developer who enjoys building scalable, high-performance applications.
+              Ever since I first built a calculator in Python, I've been fascinated by how software
+              can be used to solve real problems.
             </p>
-            <p className="text-gray-300 mt-4 leading-relaxed">
-              I like taking a feature from idea → implementation → shipped: designing endpoints,
-              structuring services cleanly, optimizing queries, and making sure systems are reliable.
+            <p className="text-gray-400 mt-4 leading-relaxed">
+              I like taking a feature all the way — from idea to implementation to shipped. That means
+              designing clean endpoints, structuring services properly, optimizing queries, and making
+              sure systems stay reliable over time.
             </p>
 
-            {/* “Chips” */}
-            <div className="mt-6 flex flex-wrap gap-3">
-              {["CS @ Iowa State", "Always Shipping", "Open Source"].map((chip) => (
+            {/* Chips */}
+            <div className="mt-6 flex flex-wrap gap-2">
+              {chips.map((chip) => (
                 <span
                   key={chip}
-                  className="px-3 py-2 rounded-full bg-white/5 border border-white/10
-                             text-sm text-gray-200 hover:border-teal-400/40 hover:text-teal-300 transition"
+                  className="px-3 py-1.5 rounded-full bg-white/4 border border-white/8 text-sm
+                             text-gray-400 hover:border-teal-400/40 hover:text-teal-300
+                             hover:shadow-[0_0_10px_rgba(45,212,191,0.15)] transition-all duration-200 cursor-default"
                 >
                   {chip}
                 </span>
@@ -51,41 +58,55 @@ const About = () => {
             </div>
 
             {/* CTAs */}
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="Resume.pdf"
                 download="Resume.pdf"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg
-                           bg-teal-500 hover:bg-teal-400 text-[#0A2540] font-semibold transition"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg
+                           bg-teal-500 hover:bg-teal-400 text-[#060f1e] font-semibold text-sm transition-colors duration-200"
               >
-                <FaFileAlt /> Resume
+                <FaFileAlt size={13} /> Resume
               </a>
               <a
                 href="https://github.com/ArjavTripathi"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg
-                           border border-white/15 hover:border-teal-400/40 text-white transition"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg
+                           border border-white/10 hover:border-teal-400/40 text-gray-300
+                           hover:text-teal-300 text-sm transition-all duration-200"
               >
-                <FaGithub /> GitHub
+                <FaGithub size={14} /> GitHub
               </a>
             </div>
           </div>
 
-          {/* Avatar (right on desktop) */}
-          <div className="flex justify-center md:justify-end">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <img
-                src={me}
-                alt="AJ profile"
-                className="w-44 h-44 md:w-56 md:h-56 rounded-full object-cover
-                           shadow-[0_0_30px_rgba(0,200,180,0.20)]"
-              />
+          {/* Right — Quick facts */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500">Quick Facts</h3>
+            {quickFacts.map(({ icon, label }) => (
+              <div key={label} className="flex items-center gap-3 text-gray-300 text-sm">
+                <span className="text-base shrink-0">{icon}</span>
+                {label}
+              </div>
+            ))}
+
+            {/* Subtle stat box */}
+            <div className="mt-6 grid grid-cols-2 gap-4">
+              {[
+                { value: '2+', label: 'Projects Shipped' },
+                { value: '10+', label: 'Technologies' },
+              ].map(({ value, label }) => (
+                <div key={label} className="rounded-xl border border-white/8 bg-white/3 p-5">
+                  <p className="text-2xl font-bold text-teal-300">{value}</p>
+                  <p className="text-xs text-gray-500 mt-1">{label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
-      <div className="mt-20 h-[2px] w-full bg-gradient-to-r from-transparent via-teal-300/60 to-transparent" />
+
+      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/8 to-transparent" />
     </section>
   );
 };

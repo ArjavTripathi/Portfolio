@@ -1,47 +1,94 @@
 import React from "react";
-import { HiArrowNarrowRight } from "react-icons/hi";
-import me from "../assets/AJIcon-nobg.png";
+import { HiChevronDown } from "react-icons/hi";
 import { Link } from "react-scroll";
 
 const Home = () => {
   return (
-    <section name="home" className="w-full min-h-screen bg-[#0A2540] text-white pt-20">
-      <div className="max-w-screen-lg mx-auto flex flex-col items-center justify-center min-h-screen px-4 md:flex-row">
-        {/* Left Side */}
-        <div className="flex flex-col justify-center">
-          <h2 className="text-4xl sm:text-7xl font-extrabold bg-gradient-to-r from-teal-300 to-teal-500 bg-clip-text text-transparent">
-            Hey, I'm Arjava Tripathi...
-          </h2>
-          <p className="text-gray-300 py-4 max-w-md">
-            Full-stack developer. I build things that work and ship them.
-          </p>
-          <div>
-            <Link
-              to="about"
-              smooth
-              duration={500}
-              className="group w-fit px-6 py-3 my-2 flex items-center rounded-md font-semibold cursor-pointer bg-teal-600 hover:bg-teal-500 text-white transition"
-            >
-              About Me
-              <span className="group-hover:rotate-90 duration-300">
-                <HiArrowNarrowRight size={25} className="ml-3" />
-              </span>
-            </Link>
-          </div>
-        </div>
+    <section
+      name="home"
+      id="home"
+      className="relative w-full min-h-screen bg-[#060f1e] text-white flex flex-col items-center justify-center overflow-hidden"
+    >
+      {/* Ambient background glow */}
+      <div
+        className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(45,212,191,0.06) 0%, transparent 70%)',
+        }}
+      />
+      <div
+        className="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(45,212,191,0.04) 0%, transparent 70%)',
+        }}
+      />
 
-        {/* Right Side */}
-        <div>
-          <img
-            src={me}
-            alt="my logo"
-            className="rounded-2xl mx-auto w-2/3 md:w-full shadow-[0_0_30px_rgba(0,200,180,0.3)]"
-          />
+      {/* Hero content */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center gap-6">
+
+        {/* Eyebrow */}
+        <span className="animate-fade-in text-xs font-semibold tracking-[0.3em] uppercase text-teal-400 border border-teal-400/30 px-4 py-1.5 rounded-full bg-teal-400/5">
+          Available for work
+        </span>
+
+        {/* Name */}
+        <h1
+          className="animate-fade-in-up text-5xl sm:text-7xl md:text-8xl font-extrabold text-white leading-[1.05] tracking-tight"
+          style={{ animationDelay: '0.1s' }}
+        >
+          Arjava Tripathi
+        </h1>
+
+        {/* Tagline */}
+        <p
+          className="animate-fade-in-up text-xl sm:text-2xl text-gray-400 font-light"
+          style={{ animationDelay: '0.2s' }}
+        >
+          I build things that work and ship them.
+        </p>
+
+        {/* Descriptor */}
+        <p
+          className="animate-fade-in-up text-sm text-gray-500 tracking-wide"
+          style={{ animationDelay: '0.3s' }}
+        >
+          Backend-focused full-stack developer &nbsp;·&nbsp; Spring Boot &nbsp;·&nbsp; React &nbsp;·&nbsp; MySQL
+        </p>
+
+        {/* CTAs */}
+        <div
+          className="animate-fade-in-up flex flex-wrap items-center justify-center gap-4 mt-2"
+          style={{ animationDelay: '0.4s' }}
+        >
+          <Link
+            to="projects"
+            smooth
+            duration={600}
+            className="cursor-pointer px-7 py-3 rounded-lg bg-teal-500 hover:bg-teal-400
+                       text-[#060f1e] font-semibold text-sm transition-colors duration-200"
+          >
+            View Projects
+          </Link>
+          <a
+            href="Resume.pdf"
+            download="Resume.pdf"
+            className="px-7 py-3 rounded-lg border border-white/15 text-gray-300
+                       hover:border-teal-400/50 hover:text-teal-300 text-sm font-medium transition-colors duration-200"
+          >
+            Resume ↗
+          </a>
         </div>
       </div>
 
-      {/* Divider (full-width) */}
-      <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-teal-300/60 to-transparent" />
+      {/* Scroll indicator */}
+      <div className="absolute bottom-10 flex flex-col items-center gap-2 animate-bounce">
+        <Link to="about" smooth duration={500} className="cursor-pointer text-gray-600 hover:text-teal-400 transition-colors duration-200">
+          <HiChevronDown size={28} />
+        </Link>
+      </div>
+
+      {/* Section divider */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] w-full bg-gradient-to-r from-transparent via-white/8 to-transparent" />
     </section>
   );
 };

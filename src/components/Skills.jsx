@@ -1,105 +1,105 @@
 import React from "react";
-import { FaCode, FaCubes, FaDatabase, FaServer, FaToolbox, FaCloud } from "react-icons/fa";
 import {
-  SiJavascript,
-  SiPython,
-  SiJava,
-  SiReact,
-  SiSpringboot,
+  SiJavascript, SiPython, SiJava,
+  SiReact, SiSpringboot,
   SiMysql,
-  SiDocker,
-  SiGithubactions,
-  SiPostman,
-  SiGit,
+  SiDocker, SiGithubactions,
+  SiPostman, SiGit,
 } from "react-icons/si";
+import { FaCloud } from "react-icons/fa";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
-const stack = [
+const categories = [
   {
-    title: "Languages",
-    icon: <FaCode />,
+    label: "Languages",
     items: [
       { name: "JavaScript", icon: <SiJavascript /> },
-      { name: "Python", icon: <SiPython /> },
-      { name: "Java", icon: <SiJava /> },
+      { name: "Python",     icon: <SiPython /> },
+      { name: "Java",       icon: <SiJava /> },
     ],
   },
   {
-    title: "Frameworks",
-    icon: <FaCubes />,
+    label: "Frameworks",
     items: [
       { name: "Spring Boot", icon: <SiSpringboot /> },
-      { name: "React", icon: <SiReact /> },
+      { name: "React",       icon: <SiReact /> },
     ],
   },
   {
-    title: "Databases",
-    icon: <FaDatabase />,
-    items: [{ name: "MySQL", icon: <SiMysql /> }],
-  },
-  {
-    title: "DevOps",
-    icon: <FaServer />,
+    label: "Databases",
     items: [
-      { name: "Docker", icon: <SiDocker /> },
-      { name: "GitHub Actions", icon: <SiGithubactions /> },
-      { name: "Render", icon: <FaCloud /> },
+      { name: "MySQL", icon: <SiMysql /> },
     ],
   },
   {
-    title: "Tools",
-    icon: <FaToolbox />,
+    label: "DevOps",
+    items: [
+      { name: "Docker",          icon: <SiDocker /> },
+      { name: "GitHub Actions",  icon: <SiGithubactions /> },
+      { name: "Render",          icon: <FaCloud /> },
+    ],
+  },
+  {
+    label: "Tools",
     items: [
       { name: "Postman", icon: <SiPostman /> },
-      { name: "Git", icon: <SiGit /> },
+      { name: "Git",     icon: <SiGit /> },
     ],
   },
 ];
 
 const Skills = () => {
+  const [ref, visible] = useScrollReveal();
+
+  let tileIndex = 0;
+
   return (
-    <section name="skills" className="w-full  bg-[#0A2540] text-white pt-24">
-      <div className="max-w-screen-lg mx-auto px-4 py-16">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold inline border-b-4 border-teal-400">
-            My Stack
-          </h2>
-          <p className="mt-4 text-gray-300 text-lg">
-            Tools and technologies I work with:
-          </p>
+    <section name="skills" id="skills" className="w-full bg-[#060f1e] text-white pt-28 pb-0">
+      <div
+        ref={ref}
+        className={`max-w-screen-lg mx-auto px-6 py-16 reveal ${visible ? 'visible' : ''}`}
+      >
+        {/* Section label */}
+        <div className="mb-12">
+          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-teal-400/70">02 — Skills</span>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-white">My Stack</h2>
+          <p className="mt-2 text-gray-500 text-sm">Tools and technologies I work with.</p>
         </div>
 
         {/* Categories */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {stack.map((group) => (
-            <div
-              key={group.title}
-              className="rounded-xl border border-white/10 bg-white/5 p-6 hover:border-teal-400/30 transition"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-teal-300 text-xl">{group.icon}</span>
-                <h3 className="text-xl font-bold text-teal-300">{group.title}</h3>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                {group.items.map((item) => (
-                  <span
-                    key={item.name}
-                    className="inline-flex items-center gap-2 px-3 py-2 rounded-full
-                               bg-[#0A2540]/40 border border-white/10 text-gray-200 text-sm
-                               hover:border-teal-400/40 hover:text-teal-300 hover:bg-white/5
-                               transition"
-                  >
-                    <span className="text-base">{item.icon}</span>
-                    {item.name}
-                  </span>
-                ))}
+        <div className="flex flex-col gap-10">
+          {categories.map((cat) => (
+            <div key={cat.label}>
+              <h3 className="text-[10px] font-bold tracking-[0.25em] uppercase text-teal-400/50 mb-4">
+                {cat.label}
+              </h3>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+                {cat.items.map((item) => {
+                  const delay = `${(tileIndex++ % 8) * 0.06}s`;
+                  return (
+                    <div
+                      key={item.name}
+                      className="group flex flex-col items-center justify-center gap-2.5 p-4 rounded-xl
+                                 bg-white/3 border border-white/8 text-gray-400
+                                 hover:border-teal-400/35 hover:text-teal-300 hover:bg-white/6
+                                 hover:shadow-[0_0_16px_rgba(45,212,191,0.08)]
+                                 transition-all duration-200 cursor-default"
+                      style={visible ? { animationDelay: delay } : {}}
+                    >
+                      <span className="text-2xl group-hover:scale-110 transition-transform duration-200">
+                        {item.icon}
+                      </span>
+                      <span className="text-[11px] font-medium text-center leading-tight">{item.name}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="mt-20 h-[2px] w-full bg-gradient-to-r from-transparent via-teal-300/60 to-transparent" />
+
+      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/8 to-transparent" />
     </section>
   );
 };
