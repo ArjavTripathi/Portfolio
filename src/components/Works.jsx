@@ -19,7 +19,7 @@ const projects = [
   },
   {
     number: "02",
-    title: "Linkly",
+    title: "Linkit",
     value: "Full-stack link management platform",
     description: "A full-stack link management platform with user authentication, a dashboard, and clean CRUD endpoints. Built with a Spring Boot backend and a Vite-powered frontend.",
     tech: ["Spring Boot", "MySQL", "Vite"],
@@ -30,6 +30,21 @@ const projects = [
     ],
     github: "https://github.com/ArjavTripathi/linkly",
     demo: "https://welinkit.tech/",
+    featured: true,
+  },
+  {
+    number: "03",
+    title: "Folio",
+    value: "Full-stack Github Profile Platform",
+    description: "A full-stack github profile application integrated with Github OAuth featuring a repository scoring algorithm",
+    tech: ["Vite", "Typescript", "Python", "FastAPI", "PostgreSQL", "Vercel", "Supabase", "Render"],
+    bullets: [
+      "Planned data model + CRUD endpoints",
+      "Added Respository Scoring + Designed UI",
+      "Deployed Frontend, Backend, and Database",
+    ],
+    github: "https://github.com/ArjavTripathi/Github-Analyser",
+    demo: "https://getfolio.page",
     featured: true,
   },
 ];
