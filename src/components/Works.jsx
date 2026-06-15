@@ -5,17 +5,18 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 const projects = [
   {
     number: "01",
-    title: "GeoHunt",
-    value: "IRL geolocation guessing game",
-    description: "A real-world location guessing game where players compete to identify places from photos. Focused on backend services for game logic, scoring, and session management.",
-    tech: ["Spring Boot", "REST API", "MySQL"],
+    title: "Folio",
+    value: "Full-stack Github Profile Platform",
+    description: "A full-stack github profile application integrated with Github OAuth featuring a repository scoring algorithm",
+    tech: ["Vite", "Typescript", "Python", "FastAPI", "PostgreSQL", "Vercel", "Supabase", "Render"],
     bullets: [
-      "Built game logic + scoring engine",
-      "Designed REST endpoints for sessions, guesses, and leaderboards",
+      "Planned data model + CRUD endpoints",
+      "Added Respository Scoring + Designed UI",
+      "Deployed Frontend, Backend, and Database",
     ],
-    github: "https://github.com/ArjavTripathi/Geohunt-Backend",
-    demo: null,
-    featured: false,
+    github: "https://github.com/ArjavTripathi/Github-Analyser",
+    demo: "https://getfolio.page",
+    featured: true,
   },
   {
     number: "02",
@@ -30,23 +31,24 @@ const projects = [
     ],
     github: "https://github.com/ArjavTripathi/linkly",
     demo: "https://welinkit.tech/",
-    featured: true,
+    featured: false,
   },
   {
     number: "03",
-    title: "Folio",
-    value: "Full-stack Github Profile Platform",
-    description: "A full-stack github profile application integrated with Github OAuth featuring a repository scoring algorithm",
-    tech: ["Vite", "Typescript", "Python", "FastAPI", "PostgreSQL", "Vercel", "Supabase", "Render"],
+    title: "GeoHunt",
+    value: "IRL geolocation guessing game",
+    description: "A real-world location guessing game where players compete to identify places from photos. Focused on backend services for game logic, scoring, and session management.",
+    tech: ["Spring Boot", "REST API", "MySQL"],
     bullets: [
-      "Planned data model + CRUD endpoints",
-      "Added Respository Scoring + Designed UI",
-      "Deployed Frontend, Backend, and Database",
+      "Built game logic + scoring engine",
+      "Designed REST endpoints for sessions, guesses, and leaderboards",
     ],
-    github: "https://github.com/ArjavTripathi/Github-Analyser",
-    demo: "https://getfolio.page",
-    featured: true,
+    github: "https://github.com/ArjavTripathi/Geohunt-Backend",
+    demo: null,
+    featured: false,
   },
+  
+  
 ];
 
 const Works = () => {
