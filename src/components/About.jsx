@@ -93,7 +93,7 @@ const About = () => {
             {/* Subtle stat box */}
             <div className="mt-6 grid grid-cols-2 gap-4">
               {[
-                { value: '2+', label: 'Projects Shipped' },
+                { value: '4+', label: 'Projects Shipped' },
                 { value: '10+', label: 'Technologies' },
               ].map(({ value, label }) => (
                 <div key={label} className="rounded-xl border border-white/8 bg-white/3 p-5">
