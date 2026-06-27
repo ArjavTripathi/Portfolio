@@ -14,4 +14,4 @@ Source code for my personal developer portfolio, available at [arjavatripathi.me
 
 ## Live Site
 
-[arjavatripathi.me/Portfolio](https://arjavatripathi.me/Portfolio/)
+[arjavatripathi.me/Portfolio](https://arjavatripathi.me/)
