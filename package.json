@@ -14,7 +14,7 @@
     "react-scroll": "^1.8.7",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://arjavtripathi.me/Portfolio",
+  "homepage": "https://arjavtripathi.me",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
