@@ -6,7 +6,6 @@ const PROJECTS = [
     name: 'ExpenseTracker',
     description: 'Full-stack expense tracking app with JWT auth and real-time features.',
     repoUrl: '#',
-    demoUrl: '#',
     highlights: ['WebSocket-based live updates', 'JWT authentication'],
     tags: ['Java', 'Spring Boot', 'React', 'PostgreSQL'],
   },
@@ -46,7 +45,7 @@ const PROJECTS = [
   },
   {
     index: '06',
-    name: 'CollabTree',
+    name: 'CollabTree (In Progress)',
     description: 'Tinder-style collaborator-matching app for students to find project partners.',
     repoUrl: '#',
     highlights: ['Repository-pattern backend (pgx)', 'GitHub OAuth'],

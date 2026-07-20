@@ -30,8 +30,8 @@ export function About() {
           A college senior who likes to build the boring parts.
         </div>
         <div className="reveal" style={{ fontSize: 17, lineHeight: 1.75, color: 'var(--text-secondary)', marginBottom: 18, maxWidth: 640 }}>
-          I'm a senior at Iowa State studying Computer Science, focused on backend and
-          infrastructure engineering. Most of my work lives in Go, Java/Spring Boot, and Python.
+          I am focused on backend and infrastructure engineering. 
+          Most of my work lives in Go, Java/Spring Boot, and Python.
         </div>
         <div className="reveal" style={{ fontSize: 17, lineHeight: 1.75, color: 'var(--text-secondary)', marginBottom: 18, maxWidth: 640 }}>
           Outside of coursework, I run a self-managed homelab. A k3s Kubernetes cluster spread

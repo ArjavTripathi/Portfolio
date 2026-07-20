@@ -4,10 +4,10 @@ const SKILLS = [
   { icon: Code2, name: 'Go', note: 'Primary language for current systems projects (Raft, Redis-clone, CollabTree).' },
   { icon: Coffee, name: 'Java / Spring Boot', note: 'Backend services and REST APIs.' },
   { icon: FileCode2, name: 'Python', note: 'Scripting, data and backend work.' },
-  { icon: Database, name: 'PostgreSQL', note: 'Primary datastore' },
+  { icon: Database, name: 'PostgreSQL', note: 'Primary datastore.' },
   { icon: Container, name: 'Docker', note: 'Containerization across projects and homelab.' },
   { icon: Boxes, name: 'Kubernetes (k3s)', note: 'Homelab cluster orchestration across three physical devices.' },
-  { icon: Cloud, name: 'AWS', note: 'Cloud deployment; SAA-C03 certification in progress.' },
+  { icon: Cloud, name: 'AWS', note: 'Cloud deployment. SAA-C03 certification in progress.' },
 ];
 
 export function Skills() {
