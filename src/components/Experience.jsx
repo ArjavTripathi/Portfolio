@@ -37,9 +37,9 @@ const EXPERIENCE = [
 
 export function Experience() {
   return (
-    <section id="experience" style={{ background: 'var(--color-canvas-soft)', padding: '120px 72px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: 48, maxWidth: 1100 }}>
-        <div className="reveal" style={{ fontSize: 120, fontWeight: 700, color: 'var(--color-canvas)', lineHeight: 1, letterSpacing: '-4px' }}>
+    <section id="experience" style={{ background: 'var(--color-canvas-soft)', padding: 'clamp(56px, 10vw, 120px) clamp(20px, 6vw, 72px)' }}>
+      <div className="split-row" style={{ maxWidth: 1100 }}>
+        <div className="reveal" style={{ fontSize: 'clamp(48px, 10vw, 120px)', fontWeight: 700, color: 'var(--color-canvas)', lineHeight: 1, letterSpacing: '-4px' }}>
           04
         </div>
         <div>
@@ -49,14 +49,14 @@ export function Experience() {
           >
             Experience
           </div>
-          <div className="reveal" style={{ fontSize: 40, fontWeight: 700, letterSpacing: '-1px', marginBottom: 36 }}>
+          <div className="reveal" style={{ fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 700, letterSpacing: '-1px', marginBottom: 36 }}>
             Where I've worked.
           </div>
           {EXPERIENCE.map((job) => (
             <div
               key={job.role}
-              className="reveal"
-              style={{ display: 'grid', gridTemplateColumns: '160px 1fr', gap: 24, padding: '28px 0', borderBottom: '1px solid var(--color-hairline)' }}
+              className="reveal split-row-narrow"
+              style={{ padding: '28px 0', borderBottom: '1px solid var(--color-hairline)' }}
             >
               <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-faint)' }}>{job.dates}</div>
               <div>

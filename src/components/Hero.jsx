@@ -10,7 +10,7 @@ export function Hero({ onScrollToProjects, onScrollToAbout }) {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        padding: '64px 72px',
+        padding: 'clamp(48px, 10vw, 64px) clamp(20px, 6vw, 72px)',
         overflow: 'hidden',
       }}
     >
@@ -19,7 +19,7 @@ export function Hero({ onScrollToProjects, onScrollToAbout }) {
           position: 'absolute',
           top: '8%',
           right: '4%',
-          fontSize: 340,
+          fontSize: 'clamp(100px, 28vw, 340px)',
           fontWeight: 700,
           lineHeight: 1,
           color: 'var(--color-canvas-soft)',
@@ -48,7 +48,7 @@ export function Hero({ onScrollToProjects, onScrollToAbout }) {
         <div
           className="fade-up"
           style={{
-            fontSize: 96,
+            fontSize: 'clamp(44px, 9vw, 96px)',
             fontWeight: 700,
             letterSpacing: '-3px',
             lineHeight: 0.98,
@@ -63,7 +63,7 @@ export function Hero({ onScrollToProjects, onScrollToAbout }) {
         <div
           className="fade-up"
           style={{
-            fontSize: 22,
+            fontSize: 'clamp(17px, 3vw, 22px)',
             fontWeight: 600,
             lineHeight: 1.4,
             color: 'var(--color-ink)',
@@ -97,7 +97,7 @@ export function Hero({ onScrollToProjects, onScrollToAbout }) {
         style={{
           position: 'absolute',
           bottom: 32,
-          left: 72,
+          left: 'clamp(20px, 6vw, 72px)',
           color: 'var(--text-faint)',
           cursor: 'pointer',
           animation: 'pulseGlow 2s ease-in-out infinite',

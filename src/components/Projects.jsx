@@ -55,9 +55,9 @@ const PROJECTS = [
 
 export function Projects() {
   return (
-    <section id="projects" style={{ padding: '120px 72px', maxWidth: 1100 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: 48, marginBottom: 8 }}>
-        <div className="reveal" style={{ fontSize: 120, fontWeight: 700, color: 'var(--color-canvas-soft)', lineHeight: 1, letterSpacing: '-4px' }}>
+    <section id="projects" style={{ padding: 'clamp(56px, 10vw, 120px) clamp(20px, 6vw, 72px)', maxWidth: 1100 }}>
+      <div className="split-row" style={{ marginBottom: 8 }}>
+        <div className="reveal" style={{ fontSize: 'clamp(48px, 10vw, 120px)', fontWeight: 700, color: 'var(--color-canvas-soft)', lineHeight: 1, letterSpacing: '-4px' }}>
           03
         </div>
         <div>
@@ -67,7 +67,7 @@ export function Projects() {
           >
             Projects
           </div>
-          <div className="reveal" style={{ fontSize: 40, fontWeight: 700, letterSpacing: '-1px', marginBottom: 16 }}>
+          <div className="reveal" style={{ fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 700, letterSpacing: '-1px', marginBottom: 16 }}>
             Selected work.
           </div>
         </div>
@@ -76,8 +76,8 @@ export function Projects() {
         {PROJECTS.map((project) => (
           <div
             key={project.name}
-            className="reveal"
-            style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: 48, padding: '36px 0', borderBottom: '1px solid var(--color-hairline)' }}
+            className="reveal split-row"
+            style={{ padding: '36px 0', borderBottom: '1px solid var(--color-hairline)' }}
           >
             <div style={{ fontSize: 15, color: 'var(--text-faint)', fontWeight: 600 }}>{project.index}</div>
             <div>

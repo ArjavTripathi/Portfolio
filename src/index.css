@@ -66,11 +66,48 @@ body {
   transform: translateY(0);
 }
 
+.split-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+}
+
+.split-row-narrow {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 24px;
+}
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.skill-name {
+  width: 200px;
+  flex-shrink: 0;
+}
+
 @media (max-width: 900px) {
   .sidebar {
     display: none !important;
   }
-  .main-offset {
-    margin-left: 0 !important;
+}
+
+@media (max-width: 640px) {
+  .split-row,
+  .split-row-narrow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .skill-row {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  .skill-name {
+    width: auto;
   }
 }

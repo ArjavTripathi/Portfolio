@@ -6,7 +6,7 @@ export function Footer() {
       style={{
         background: 'var(--color-secondary)',
         color: '#fff',
-        padding: '32px 72px',
+        padding: 'clamp(24px, 5vw, 32px) clamp(20px, 6vw, 72px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',

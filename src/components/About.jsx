@@ -2,17 +2,15 @@ export function About() {
   return (
     <section
       id="about"
+      className="split-row"
       style={{
-        padding: '120px 72px',
-        display: 'grid',
-        gridTemplateColumns: '200px 1fr',
-        gap: 48,
+        padding: 'clamp(56px, 10vw, 120px) clamp(20px, 6vw, 72px)',
         maxWidth: 1100,
       }}
     >
       <div
         className="reveal"
-        style={{ fontSize: 120, fontWeight: 700, color: 'var(--color-canvas-soft)', lineHeight: 1, letterSpacing: '-4px' }}
+        style={{ fontSize: 'clamp(48px, 10vw, 120px)', fontWeight: 700, color: 'var(--color-canvas-soft)', lineHeight: 1, letterSpacing: '-4px' }}
       >
         01
       </div>
@@ -25,7 +23,7 @@ export function About() {
         </div>
         <div
           className="reveal"
-          style={{ fontSize: 40, fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 28, maxWidth: 640 }}
+          style={{ fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 28, maxWidth: 640 }}
         >
           A college senior who likes to build the boring parts.
         </div>

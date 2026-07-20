@@ -22,15 +22,17 @@ function App() {
 
   return (
     <div style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-ink)', background: 'var(--color-canvas)' }}>
-      <Sidebar active={active} onNavigate={scrollTo} />
-      <div className="main-offset" style={{ marginLeft: 240 }}>
-        <Hero onScrollToProjects={() => scrollTo('projects')} onScrollToAbout={() => scrollTo('about')} />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Contact />
-        <Footer />
+      <div style={{ display: 'flex', maxWidth: 1728, margin: '0 auto' }}>
+        <Sidebar active={active} onNavigate={scrollTo} />
+        <div className="main-offset" style={{ flex: 1, minWidth: 0 }}>
+          <Hero onScrollToProjects={() => scrollTo('projects')} onScrollToAbout={() => scrollTo('about')} />
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Contact />
+          <Footer />
+        </div>
       </div>
     </div>
   );

@@ -12,9 +12,9 @@ const SKILLS = [
 
 export function Skills() {
   return (
-    <section id="skills" style={{ background: 'var(--color-canvas-soft)', padding: '120px 72px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: 48, maxWidth: 1100 }}>
-        <div className="reveal" style={{ fontSize: 120, fontWeight: 700, color: 'var(--color-canvas)', lineHeight: 1, letterSpacing: '-4px' }}>
+    <section id="skills" style={{ background: 'var(--color-canvas-soft)', padding: 'clamp(56px, 10vw, 120px) clamp(20px, 6vw, 72px)' }}>
+      <div className="split-row" style={{ maxWidth: 1100 }}>
+        <div className="reveal" style={{ fontSize: 'clamp(48px, 10vw, 120px)', fontWeight: 700, color: 'var(--color-canvas)', lineHeight: 1, letterSpacing: '-4px' }}>
           02
         </div>
         <div>
@@ -24,18 +24,18 @@ export function Skills() {
           >
             Skills
           </div>
-          <div className="reveal" style={{ fontSize: 40, fontWeight: 700, letterSpacing: '-1px', marginBottom: 36 }}>
+          <div className="reveal" style={{ fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 700, letterSpacing: '-1px', marginBottom: 36 }}>
             Tools I reach for.
           </div>
           <div>
             {SKILLS.map((skill) => (
               <div
                 key={skill.name}
-                className="reveal"
-                style={{ display: 'flex', alignItems: 'center', gap: 24, padding: '20px 0', borderBottom: '1px solid var(--color-hairline)' }}
+                className="reveal skill-row"
+                style={{ padding: '20px 0', borderBottom: '1px solid var(--color-hairline)' }}
               >
                 <skill.icon size={24} style={{ color: 'var(--color-primary)', flexShrink: 0 }} />
-                <div style={{ width: 200, flexShrink: 0, fontWeight: 700, fontSize: 17 }}>{skill.name}</div>
+                <div className="skill-name" style={{ fontWeight: 700, fontSize: 17 }}>{skill.name}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.5, color: 'var(--text-secondary)' }}>{skill.note}</div>
               </div>
             ))}

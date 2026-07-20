@@ -15,10 +15,11 @@ export function Sidebar({ active, onNavigate }) {
     <nav
       className="sidebar"
       style={{
-        position: 'fixed',
+        position: 'sticky',
         top: 0,
-        left: 0,
+        alignSelf: 'flex-start',
         width: 240,
+        flexShrink: 0,
         height: '100vh',
         boxSizing: 'border-box',
         padding: '40px 28px',
