@@ -3,9 +3,10 @@ import { Github, ExternalLink } from 'lucide-react';
 const PROJECTS = [
   {
     index: '01',
-    name: 'ExpenseTracker',
-    description: 'Full-stack expense tracking app with JWT auth and real-time features.',
-    repoUrl: '#',
+    name: 'Divvy',
+    description: 'Full-stack expense tracking and splitting app with JWT auth and real-time features.',
+    repoUrl: 'https://github.com/ArjavTripathi/ExpenseTracker',
+    demoUrl: 'https://divvy.arjavatripathi.me',
     highlights: ['WebSocket-based live updates', 'JWT authentication'],
     tags: ['Java', 'Spring Boot', 'React', 'PostgreSQL'],
   },
