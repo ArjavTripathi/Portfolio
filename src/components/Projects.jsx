@@ -14,7 +14,7 @@ const PROJECTS = [
     index: '02',
     name: 'GetFolio',
     description: 'Good-looking GitHub profile display.',
-    repoUrl: 'github.com/ArjavTripathi/Folio',
+    repoUrl: 'https://github.com/ArjavTripathi/Folio',
     demoUrl: 'https://www.getfolio.page/',
     highlights: ['Clean profile card generation', 'Built with FastAPI + React'],
     tags: ['Python', 'FastAPI', 'React'],
