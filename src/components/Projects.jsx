@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 
 const PROJECTS = [
@@ -26,7 +27,7 @@ const PROJECTS = [
     repoUrl: 'https://github.com/ArjavTripathi/linkit',
     demoUrl: 'https://welinkit.tech/',
     highlights: ['JWT-based auth', 'Spring Boot + React'],
-    tags: ['SpringBoot', 'React', 'JWT'],
+    tags: ['Java', 'Spring Boot', 'React', 'JWT'],
   },
   {
     index: '04',
@@ -46,15 +47,33 @@ const PROJECTS = [
   },
   {
     index: '06',
-    name: 'CollabTree (In Progress)',
-    description: 'Tinder-style collaborator-matching app for students to find project partners.',
-    repoUrl: 'https://github.com/ArjavTripathi/CollabTree',
-    highlights: ['Repository-pattern backend (pgx)', 'GitHub OAuth'],
-    tags: ['Go', 'PostgreSQL'],
+    name: 'Raytracer',
+    description: 'Physically-based ray tracer written from scratch in C++.',
+    repoUrl: 'https://github.com/ArjavTripathi/Raytracer',
+    highlights: ['Recursive ray-object intersection', 'Diffuse, reflective, and refractive materials'],
+    tags: ['C++'],
   },
 ];
 
+const ALL_TAGS = [...new Set(PROJECTS.flatMap((project) => project.tags))];
+
 export function Projects() {
+  const [activeTags, setActiveTags] = useState([]);
+
+  const toggleTag = (tag) => {
+    setActiveTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  };
+
+  const filteredProjects = useMemo(
+    () =>
+      activeTags.length === 0
+        ? PROJECTS
+        : PROJECTS.filter((project) => activeTags.some((tag) => project.tags.includes(tag))),
+    [activeTags]
+  );
+
   return (
     <section id="projects" style={{ padding: 'clamp(56px, 10vw, 120px) clamp(20px, 6vw, 72px)', maxWidth: 1100 }}>
       <div className="split-row" style={{ marginBottom: 8 }}>
@@ -71,10 +90,63 @@ export function Projects() {
           <div className="reveal" style={{ fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 700, letterSpacing: '-1px', marginBottom: 16 }}>
             Selected work.
           </div>
+          <div
+            className="reveal"
+            role="group"
+            aria-label="Filter projects by tag"
+            style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 8 }}
+          >
+            {ALL_TAGS.map((tag) => {
+              const active = activeTags.includes(tag);
+              return (
+                <button
+                  key={tag}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => toggleTag(tag)}
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 600,
+                    color: active ? 'var(--color-canvas)' : 'var(--text-secondary)',
+                    background: active ? 'var(--color-primary)' : 'var(--color-canvas-soft)',
+                    border: 'none',
+                    borderRadius: 'var(--radius-full)',
+                    padding: '6px 14px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {tag}
+                </button>
+              );
+            })}
+            {activeTags.length > 0 && (
+              <button
+                type="button"
+                onClick={() => setActiveTags([])}
+                style={{
+                  fontSize: 11,
+                  fontWeight: 600,
+                  color: 'var(--text-faint)',
+                  background: 'transparent',
+                  border: 'none',
+                  borderRadius: 'var(--radius-full)',
+                  padding: '6px 14px',
+                  cursor: 'pointer',
+                }}
+              >
+                Clear filters
+              </button>
+            )}
+          </div>
         </div>
       </div>
       <div>
-        {PROJECTS.map((project) => (
+        {filteredProjects.length === 0 && (
+          <div style={{ padding: '36px 0', fontSize: 15, color: 'var(--text-secondary)' }}>
+            No projects match the selected tags.
+          </div>
+        )}
+        {filteredProjects.map((project) => (
           <div
             key={project.name}
             className="reveal split-row"
@@ -85,11 +157,23 @@ export function Projects() {
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16, marginBottom: 8 }}>
                 <div style={{ fontWeight: 700, fontSize: 24, letterSpacing: '-0.5px' }}>{project.name}</div>
                 <div style={{ display: 'flex', gap: 10, flexShrink: 0, marginTop: 4 }}>
-                  <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-faint)' }}>
+                  <a
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.name} source on GitHub`}
+                    style={{ color: 'var(--text-faint)' }}
+                  >
                     <Github size={18} />
                   </a>
                   {project.demoUrl && (
-                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-faint)' }}>
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${project.name} live demo`}
+                      style={{ color: 'var(--text-faint)' }}
+                    >
                       <ExternalLink size={18} />
                     </a>
                   )}

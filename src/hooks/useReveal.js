@@ -14,11 +14,21 @@ export function useReveal() {
       { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
     );
 
-    document.querySelectorAll('.reveal:not(.reveal-in)').forEach((el, i) => {
-      el.style.transitionDelay = `${(i % 6) * 0.06}s`;
-      observer.observe(el);
-    });
+    const observeNew = () => {
+      document.querySelectorAll('.reveal:not(.reveal-in)').forEach((el, i) => {
+        el.style.transitionDelay = `${(i % 6) * 0.06}s`;
+        observer.observe(el);
+      });
+    };
 
-    return () => observer.disconnect();
+    observeNew();
+
+    const mutationObserver = new MutationObserver(observeNew);
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 }

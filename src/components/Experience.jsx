@@ -3,7 +3,7 @@ const EXPERIENCE = [
     role: 'Computer Vision Engineer Intern',
     company: 'Cresento.HK',
     type: 'Internship',
-    dates: 'Jun 2026 – Present',
+    dates: 'Jun 2026 – August 2026',
     location: 'Remote',
     bullets: [
       'Curated and validated CV datasets from football match footage — annotation, classification, error analysis',
@@ -15,7 +15,7 @@ const EXPERIENCE = [
     role: 'Summer Campus Moving and Repair Team',
     company: 'Iowa Home Consulting',
     type: 'Seasonal',
-    dates: 'May 2026 – Present',
+    dates: 'May 2026 – August 2026',
     location: 'Ames, Iowa · On-site',
     bullets: [
       'Managed high-volume furniture setup, repair, and distribution across university housing (40 hr/week)',

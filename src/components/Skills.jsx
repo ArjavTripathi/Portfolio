@@ -1,13 +1,14 @@
-import { Code2, Coffee, FileCode2, Database, Container, Boxes, Cloud } from 'lucide-react';
+import { Code2, Coffee, FileCode2, Database, Container, Boxes, Cloud, Cpu } from 'lucide-react';
 
 const SKILLS = [
-  { icon: Code2, name: 'Go', note: 'Primary language for current systems projects (Raft, Redis-clone, CollabTree).' },
+  { icon: Code2, name: 'Go', note: 'Primary language for current systems projects (Raft, Redis-clone).' },
   { icon: Coffee, name: 'Java / Spring Boot', note: 'Backend services and REST APIs.' },
   { icon: FileCode2, name: 'Python', note: 'Scripting, data and backend work.' },
+  { icon: Cpu, name: 'C++', note: 'Performance driven development.' },
   { icon: Database, name: 'PostgreSQL', note: 'Primary datastore.' },
   { icon: Container, name: 'Docker', note: 'Containerization across projects and homelab.' },
   { icon: Boxes, name: 'Kubernetes (k3s)', note: 'Homelab cluster orchestration across three physical devices.' },
-  { icon: Cloud, name: 'AWS', note: 'Cloud deployment. SAA-C03 certification in progress.' },
+  { icon: Cloud, name: 'AWS', note: 'Cloud deployment.' },
 ];
 
 export function Skills() {
